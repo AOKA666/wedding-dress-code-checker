@@ -1,8 +1,8 @@
 import ToolClient from './ToolClient';
 
 export const metadata = {
-  title: 'Wedding Dress Code Checker | Know What to Wear to a Wedding',
-  description: 'Check a wedding dress code in seconds. Get practical outfit recommendations, safe choices, what to avoid, and wedding guest outfit formulas.',
+  title: 'Wedding Dress Code Checker Tool for Wedding Guests',
+  description: 'Use this free wedding dress code checker to get practical outfit recommendations by dress code, venue, season, time of day, and style preference.',
   alternates: { canonical: '/wedding-dress-code-checker' }
 };
 

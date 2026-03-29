@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
-import { faqItems, seoPages, siteUrl } from '../content';
+import { faqItems, seoPages, siteName, siteUrl } from '../content';
 
 const OPTIONS = {
   dressCode: ['Cocktail', 'Semi-Formal', 'Formal', 'Black Tie Optional', 'Beach Formal', 'Garden Attire', 'No Dress Code'],
@@ -22,7 +22,7 @@ const defaults = {
 };
 
 const BASE_RULES = {
-  'Cocktail': {
+  Cocktail: {
     recommended: {
       Masculine: ['navy or charcoal suit', 'crisp shirt', 'leather loafers or oxfords'],
       Feminine: ['midi dress or polished jumpsuit', 'dressy flats or low heels', 'small evening bag'],
@@ -52,7 +52,7 @@ const BASE_RULES = {
       Neutral: ['tailored set + polished shoes + one elevated accessory']
     }
   },
-  'Formal': {
+  Formal: {
     recommended: {
       Masculine: ['dark suit', 'dress shirt', 'tie and leather shoes'],
       Feminine: ['long dress or elevated midi', 'dress shoes', 'clean evening accessories'],
@@ -198,7 +198,7 @@ const faqSchema = {
 const appSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
-  name: 'Wedding Dress Code Checker',
+  name: siteName,
   applicationCategory: 'LifestyleApplication',
   operatingSystem: 'Web',
   url: `${siteUrl}/wedding-dress-code-checker`,
@@ -218,24 +218,42 @@ export default function ToolClient() {
       <section className="hero card">
         <div>
           <span className="eyebrow">Wedding guest outfit tool</span>
-          <h1>What Does This Wedding Dress Code Actually Mean?</h1>
-          <p className="lead">Get a clear, practical outfit recommendation in seconds. Choose the dress code, venue, season, and style preference, then get specific wedding guest guidance you can actually follow.</p>
+          <h1>Wedding Dress Code Checker</h1>
+          <p className="lead">Get a clear outfit recommendation in seconds. Choose the dress code, venue, season, time of day, and style preference to see what to wear, what to avoid, and which outfit formulas are safest.</p>
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 20 }}>
-            <a href="#checker" className="button">Check My Wedding Outfit</a>
+            <a href="#checker" className="button">Check my wedding outfit</a>
             <a href="#faq" className="button secondary">Read common questions</a>
           </div>
         </div>
         <aside className="heroAside">
-          <span className="eyebrow">Built for speed</span>
-          <strong>30-second answer</strong>
-          <p>No fashion-magazine fluff. Just what to wear, what to avoid, and a few safe outfit formulas that work for real wedding guests.</p>
+          <span className="eyebrow">Why this tool works</span>
+          <strong>Fast answers, low-risk outfits</strong>
+          <p>Most wedding guests want the safe answer. This checker uses dress code plus venue and season context so the guidance feels practical instead of generic.</p>
         </aside>
+      </section>
+
+      <section className="card" style={{ marginBottom: 24 }}>
+        <h2>How to get the best recommendation</h2>
+        <div className="three">
+          <article className="listCard">
+            <h3>Start with the dress code</h3>
+            <p>Cocktail, semi-formal, and black tie optional sound similar until you actually have to pick clothes. Start there and let the rest of the context refine the answer.</p>
+          </article>
+          <article className="listCard">
+            <h3>Use venue to break the tie</h3>
+            <p>A church, hotel, garden, beach, and vineyard all change the same dress code in different ways. Shoes, coverage, and fabric weight matter more than people think.</p>
+          </article>
+          <article className="listCard">
+            <h3>Keep it one step safer</h3>
+            <p>For weddings, slightly more polished usually beats slightly more casual. The best outfits look intentional without stealing attention from the couple.</p>
+          </article>
+        </div>
       </section>
 
       <section className="grid" id="checker">
         <section className="card stack">
           <div>
-            <h2>Wedding Dress Code Checker</h2>
+            <h2>Check your wedding outfit</h2>
             <p className="small">Pick the dress code and context. The result stays practical on purpose: specific items, safer choices, and common mistakes to avoid.</p>
           </div>
           <div className="formGrid">
@@ -252,7 +270,7 @@ export default function ToolClient() {
               <textarea placeholder="church ceremony, luxury hotel, destination wedding..." value={form.note} onChange={(e) => setForm((prev) => ({ ...prev, note: e.target.value }))} />
             </label>
           </div>
-          <a href="#result" className="button">See Recommendation</a>
+          <a href="#result" className="button">See recommendation</a>
         </section>
 
         <section className="card stack" id="result">
@@ -284,31 +302,31 @@ export default function ToolClient() {
       </section>
 
       <section className="card three">
-        <article>
-          <h3>Results first</h3>
-          <p>This tool leads with the answer because most wedding guests are trying to avoid wearing the wrong thing, not read a long style essay.</p>
+        <article className="listCard">
+          <h3>Built for search intent</h3>
+          <p>This page targets wedding guests who want an answer now. It covers the main tool intent while the guide pages target long-tail questions like cocktail attire, beach weddings, and no dress code invites.</p>
         </article>
-        <article>
-          <h3>Venue changes the answer</h3>
-          <p>A church, beach, hotel, and garden wedding can all shift the right interpretation of the exact same dress code.</p>
-        </article>
-        <article>
+        <article className="listCard">
           <h3>Specific beats vague</h3>
-          <p>Each result falls back to items and combinations you can actually wear: suit, loafers, midi dress, sandals, blazer, dress pants.</p>
+          <p>Each result falls back to wearable combinations: midi dress, loafers, tailored separates, blazer, dress pants, block heels. That is what makes the advice useful instead of fluffy.</p>
+        </article>
+        <article className="listCard">
+          <h3>Context beats guesswork</h3>
+          <p>The same outfit can feel right at a vineyard and wrong at a church. Context is the whole game, so the tool keeps venue and timing in the recommendation logic.</p>
         </article>
       </section>
 
       <section className="card cta" style={{ marginTop: 24 }}>
-        <h2>Get the wedding guest outfit checklist</h2>
-        <p>Use this CTA block to plug your future email capture, PDF checklist, or affiliate funnel. For MVP, the section is present and indexable.</p>
-        <div style={{ display:'flex', gap:12, flexWrap:'wrap' }}>
+        <h2>Wedding guest outfit checklist</h2>
+        <p>Save the low-risk rules: match the dress code, respect the venue, and avoid shoes or fabrics that fight the setting. This section is ready for a future email lead magnet or downloadable checklist.</p>
+        <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
           <input aria-label="Email address" placeholder="Enter your email" style={{ maxWidth: 360 }} />
           <button className="button">Get the checklist</button>
         </div>
       </section>
 
       <section className="card" style={{ marginTop: 24 }} id="faq">
-        <h2>Wedding Dress Code FAQ</h2>
+        <h2>Wedding dress code FAQ</h2>
         <div className="three">
           {faqItems.map((item) => (
             <article key={item.question} className="listCard">
