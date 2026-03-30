@@ -1,6 +1,6 @@
 export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : 'https://wedding-dress-code-checker.vercel.app');
+  'https://www.weddingdresscodechecker.online';
 
 export const siteName = 'Wedding Dress Code Checker';
 export const siteDescription = 'Check a wedding dress code in seconds. Get practical outfit recommendations, safe choices, what to avoid, and wedding guest outfit formulas.';
